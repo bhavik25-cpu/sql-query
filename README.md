@@ -19,6 +19,7 @@ CREATE TABLE Categories (
   category_name VARCHAR(255)
 );
  ```
+
  ```javascript
 INSERT INTO Categories (category_id, category_name)
 VALUES
@@ -26,6 +27,7 @@ VALUES
   (2, 'Clothing'),
   (3, 'Books');
  ```
+
 -- Sample Products table
  ```javascript
 CREATE TABLE Products (
@@ -36,6 +38,7 @@ CREATE TABLE Products (
   FOREIGN KEY (category_id) REFERENCES Categories(category_id)
 );
  ```
+
  ```javascript
 INSERT INTO Products (product_id, product_name, price, category_id)
 VALUES
