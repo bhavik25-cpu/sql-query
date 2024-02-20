@@ -53,5 +53,13 @@ SELECT Products.product_id, Products.product_name, Products.price, Categories.ca
 FROM Products
 INNER JOIN Categories ON Products.category_id = Categories.category_id;
  ```
+_____________________________________________________________________________________________
+joIN 3 TABLES
+ ```javascript
 
+SELECT *
+FROM Customers
+JOIN Orders ON Customers.customer_id = Orders.order_id
+JOIN Shippings ON Orders.order_id = Shippings.shipping_id;
+ ```
 
