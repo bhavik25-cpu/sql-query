@@ -1,4 +1,5 @@
 # sql-query
+https://www.programiz.com/sql/online-compiler/
 
  Find the average price of all products form products table
  ```javascript
@@ -111,6 +112,137 @@ JOIN Orders ON Employees.employee_id = Orders.employee_id
 GROUP BY Employees.employee_id, Employees.employee_name
 HAVING order_count > 10;
  ```
+
+__________________________________________________________________________________________________________________________
+To retrieve the top 3 highest values from a column in a SQL database, from products
+ ```javascript
+
+1 Assuming you have a Products table with a 'price' column
+ ```javascript
+
+SELECT product_name, price
+FROM Products
+ORDER BY price DESC
+LIMIT 3;
+ ```
+
+ ```javascript
+2
+SELECT * FROM products ORDER BY Price DESC LIMIT 1 OFFSET 2;
+
+ ```
+____________________________________________________________________________________________________
+ ```javascript
+
+SELECT first_name,last_name,SUM(age)
+FROM
+Customers
+GROUP BY first_name
+ORDER BY SUM(age)
+
+ ```
+_________________________________________________________________________________________
+Consider a database containing customer information. The query below is executed to retrieve the sum of ages for each customer, along with their first name and last name. The results are then grouped by the first name and ordered by the sum of ages in ascending order.
+ ```javascript
+
+SELECT first_name,last_name,SUM(age)
+FROM
+Customers
+GROUP BY first_name
+ORDER BY SUM(age)
+
+ ```
+________________________________________________________________________________________
+ The query below is executed to retrieve the sum of ages for each customer, along with their first name and last name. However, it excludes any customers with the first name "John" or those with a null first name. The results are then grouped by the first name.
+ ```javascript
+
+SELECT first_name, last_name, SUM(age)
+FROM Customers
+WHERE first_name != 'John' AND first_name IS NOT NULL
+GROUP BY first_name;
+
+ ```
+_____________________________________________________________________________
+Consider a database containing order information. The query below is executed to retrieve the count of orders for each item, along with the total amount, but only for items where the amount is greater than 2 The results are then ordered by the total count of orders for each item.
+ ```javascript
+
+SELECT item, amount, COUNT(*) AS Total
+FROM Orders
+GROUP BY item
+HAVING amount > 2
+ORDER BY Total;
+ ```
+
+__________________________________________________________________________________
+
+What SQL command is used to create a table named "employees" with columns for employee ID, name, salary, department, and date of birth, where the ID serves as the primary key?
+
+
+ ```javascript
+
+CREATE TABLE employees(
+id int PRIMARY KEY,
+name VARCHAR(50) NOT NULL,
+salary int(20),
+department VARCHAR(50),
+dob date
+);
+
+
+ ```
+ ```javascript
+
+Show Tables;
+ ```
+
+ ```javascript
+
+INSERT INTO employee(id,name,salary,department,dob)
+VALUES(101,'jack',2000,'HR','1997-05-19')
+
+```
+______________________________________________________________________________________________________________________
+
+How does the provided SQL statement create a table named "employee" with columns for employee ID, name, address, and department ID, where the department ID references the "customer_id" column in the "Orders" table?
+ ```javascript
+
+CREATE TABLE employee(
+ID int PRIMARY KEY,
+NAME VARCHAR(50) NOT NULL,
+ADDRESS int(20),
+DEPT_ID VARCHAR(50),
+FOREIGN KEY (DEPT_ID) REFERENCES Orders(customer_id)
+);
+ ```
+
+______________________________________________________________________________________________________________________
+
+Removes the table from the database,
+ ```javascript
+DROP TABLE table_name;
+
+ ```
+Removes one or more records from the table
+
+ ```javascript
+DELETE FROM table_name
+WHERE condition;
+
+ ```
+Removes all the rows from the table, leaving the column names. The TRUNCATE command is a DDL command. 
+ ```javascript
+TRUNCATE TABLE table_name;
+
+ ```
+
+____________________________________________________________________________________________________________________
+
+
+
+
+
+
+
 
 
 
