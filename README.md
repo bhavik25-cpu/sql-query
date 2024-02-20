@@ -115,7 +115,6 @@ HAVING order_count > 10;
 
 __________________________________________________________________________________________________________________________
 To retrieve the top 3 highest values from a column in a SQL database, from products
- ```javascript
 
 1 Assuming you have a Products table with a 'price' column
  ```javascript
