@@ -9,7 +9,7 @@ SELECT AVG(amount) AS average_price FROM Orders;
  ```
 ______________________________________________________________________________________________________
 
-Write Query to Join Products and Categories with the INNER JOIN
+Write a Query to Join Products and Categories with the INNER JOIN
 keyword Below in sample table with small data
  ```javascript
 
@@ -114,21 +114,20 @@ HAVING order_count > 10;
  ```
 
 __________________________________________________________________________________________________________________________
-To retrieve the top 3 highest values from a column in a SQL database, from products
+To retrieve the top 3 highest values from a column in a SQL database, from Orders
 
-1 Assuming you have a Products table with a 'price' column
+1 Assuming you have a Orders table with a 'amount' column
  ```javascript
 
-SELECT product_name, price
-FROM Products
-ORDER BY price DESC
+SELECT item, amount
+FROM Orders
+ORDER BY amount DESC
 LIMIT 3;
  ```
 
  ```javascript
 2
-SELECT * FROM products ORDER BY Price DESC LIMIT 1 OFFSET 2;
-
+SELECT * FROM Orders ORDER BY amount DESC LIMIT 1 OFFSET 2;
  ```
 ____________________________________________________________________________________________________
  ```javascript
@@ -235,9 +234,46 @@ TRUNCATE TABLE table_name;
  ```
 
 ____________________________________________________________________________________________________________________
+LEFT JOIN
+ ```javascript
 
 
+SELECT *
+FROM Customers
+LEFT JOIN Orders ON Customers.customer_id = Orders.customer_id
+LEFT JOIN Shippings ON Customers.customer_id = Shippings.shipping_id;
+ ```
 
+
+____________________________________________________________________________________________________
+RIGHT JOIN
+ ```javascript
+
+SELECT *
+FROM Customers
+RIGHT JOIN Orders ON Customers.customer_id = Orders.customer_id
+RIGHT JOIN Shippings ON Customers.customer_id = Shippings.shipping_id;
+ ```
+
+__________________________________________________________________________________________
+
+FULL OUTER JOIN 
+ ```javascript
+
+SELECT *
+FROM Customers
+FULL OUTER JOIN Orders ON Customers.customer_id	 = Orders.customer_id;
+
+ ```
+__________________________________________________________________________________________
+"CROSS JOIN
+ ```javascript
+
+SELECT *
+FROM Customers
+CROSS JOIN Orders
+CROSS JOIN Shippings;
+ ```
 
 
 
