@@ -1,10 +1,10 @@
 # sql-query
 https://www.programiz.com/sql/online-compiler/
 
- Find the average price of all products form products table
+ Find the average amount of all amount form amount table
  ```javascript
 
- SELECT AVG(price) AS average_price FROM products;
+SELECT AVG(amount) AS average_price FROM Orders;
 
  ```
 ______________________________________________________________________________________________________
