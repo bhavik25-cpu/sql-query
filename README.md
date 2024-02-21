@@ -274,10 +274,38 @@ FROM Customers
 CROSS JOIN Orders
 CROSS JOIN Shippings;
  ```
+_______________________________________________________________________________________
+DELETE FROM Customers
+ ```javascript
+
+WHERE customer_id IN (
+    SELECT customer_id
+    FROM (
+        SELECT 
+            customer_id,
+            ROW_NUMBER() OVER (PARTITION BY first_name ORDER BY customer_id) AS row_num
+        FROM 
+            Customers
+    ) AS SubQuery
+    WHERE row_num > 1
+);
 
 
+ ```
+_____________________________________________________________________________________________________________
+ ```javascript
 
 
+SELECT 
+    c.first_name,
+    c.last_name,
+    o.item,
+    o.item
+FROM 
+    Customers c
+LEFT JOIN 
+    Orders o ON c.customer_id = o.customer_id;
+ ```
 
 
 
