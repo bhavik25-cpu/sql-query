@@ -277,17 +277,17 @@ CROSS JOIN Shippings;
 _______________________________________________________________________________________
 DELETE FROM Customers
  ```javascript
-
+DELETE FROM Customers
 WHERE customer_id IN (
-    SELECT customer_id
-    FROM (
-        SELECT 
-            customer_id,
-            ROW_NUMBER() OVER (PARTITION BY first_name ORDER BY customer_id) AS row_num
-        FROM 
-            Customers
-    ) AS SubQuery
-    WHERE row_num > 1
+   SELECT customer_id
+   FROM (
+       SELECT 
+           customer_id,
+           ROW_NUMBER() OVER (PARTITION BY first_name ORDER BY customer_id) AS row_num
+       FROM 
+           Customers
+   ) AS SubQuery
+   WHERE row_num > 1
 );
 
 
