@@ -275,8 +275,8 @@ CROSS JOIN Orders
 CROSS JOIN Shippings;
  ```
 _______________________________________________________________________________________
-DELETE FROM Customers
- ```javascript
+Delete Duplicate first_name sql query 
+```javascript
 DELETE FROM Customers
 WHERE customer_id IN (
    SELECT customer_id
