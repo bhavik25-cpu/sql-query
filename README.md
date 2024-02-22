@@ -310,5 +310,49 @@ LEFT JOIN
     Orders o ON c.customer_id = o.customer_id;
  ```
 
+_____________________________________________________________________________________________________________
+ Department Highest Salary
+ ```javascript
 
+CREATE TABLE Departments (
+    id INT PRIMARY KEY,
+    department_name VARCHAR(255) NOT NULL
+);
+
+ ```
+
+CREATE TABLE Employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    salary DECIMAL(10, 2) NOT NULL,
+    department_id INT,
+    FOREIGN KEY (department_id) REFERENCES Departments(id)
+);
+
+ ```javascript
+
+INSERT INTO Departments (id, department_name) VALUES
+(1, 'Sales'),
+(2, 'Marketing'),
+(3, 'Finance');
+ ```
+ ```javascript
+
+INSERT INTO Employees (id, name, salary, department_id) VALUES
+(1, 'John Doe', 50000.00, 1),
+(2, 'Jane Smith', 60000.00, 1),
+(3, 'Michael Johnson', 55000.00, 2),
+(4, 'Emily Brown', 65000.00, 2),
+(5, 'David Jones', 70000.00, 3);
+
+ ```
+
+ ```javascript
+SELECT d.department_name, MAX(e.salary) AS highest_salary
+FROM Departments d
+JOIN Employees e ON d.id = e.department_id
+GROUP BY d.department_name
+ORDER BY highest_salary DESC
+LIMIT 1;
+ ```
 
