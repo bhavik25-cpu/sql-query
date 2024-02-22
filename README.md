@@ -357,3 +357,42 @@ ORDER BY highest_salary DESC
 LIMIT 1;
  ```
 
+_________________________________________________________________________________________
+The Number of Employees Which Report to Each Employee
+
+ ```javascript
+
+CREATE TABLE Employees (
+    employee_id INT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    reports_to INT,
+    age INT
+);
+ ```
+ ```javascript
+INSERT INTO Employees (employee_id, name, reports_to, age) VALUES
+(9, 'Hercy', NULL, 43),
+(6, 'Alice', 9, 41),
+(4, 'Bob', 9, 36),
+(2, 'Winston', NULL, 37);
+
+ ```
+
+ ```javascript
+
+SELECT 
+    e.employee_id,
+    e.name,
+    COUNT(r.employee_id) AS reports_count,
+    ROUND(AVG(r.age)) AS average_age
+FROM 
+    Employees e
+LEFT JOIN 
+    Employees r ON e.employee_id = r.reports_to
+GROUP BY 
+    e.employee_id, e.name
+HAVING 
+    reports_count > 0;
+ ```
+
+
