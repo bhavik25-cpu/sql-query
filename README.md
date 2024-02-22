@@ -11,7 +11,6 @@ ________________________________________________________________________________
 
 Write a Query to Join Products and Categories with the INNER JOIN
 keyword Below in sample table with small data
- ```javascript
 
 -- Sample Categories table
  ```javascript
@@ -320,6 +319,7 @@ CREATE TABLE Departments (
 );
 
  ```
+ ```javascript
 
 CREATE TABLE Employees (
     id INT PRIMARY KEY,
@@ -328,6 +328,7 @@ CREATE TABLE Employees (
     department_id INT,
     FOREIGN KEY (department_id) REFERENCES Departments(id)
 );
+ ```
 
  ```javascript
 
