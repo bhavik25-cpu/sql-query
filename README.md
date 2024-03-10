@@ -1,3 +1,8 @@
+Notes
+
+https://github.com/Aafreen29/SQL-Interview-Prep-Question/blob/master/queries.sql
+
+
 # sql-query
 https://www.programiz.com/sql/online-compiler/
 
